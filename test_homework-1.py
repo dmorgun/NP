@@ -57,14 +57,7 @@ def test_adding_candidate_with_blank_name():
     r = requests.post(url+'candidates', data=json.dumps(payload_blank_name), headers=headers)
     assert r.status_code == 400, "Return status code 400 if user tries to add candidate with blank 'name'"
 
+def
+
 if __name__ == '__main__':
     pytest.main([__file__, '-v'])
-
-# test_get_candidates()
-# test_adding_candidate()
-# test_get_candidate_by_id()
-# test_get_candidate_by_id_that_does_not_exist()
-# test_deleting_candidate()
-# test_adding_candidate_without_body_and_name()
-# test_adding_candidate_without_position()
-# test_adding_candidate_with_blank_name()
