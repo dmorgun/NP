@@ -8,6 +8,7 @@ url='http://qainterview.cogniance.com/'
 payload={	"name": "Chupacabra", 	"position": "Senior QA" }
 payload_no_position = { "name": "GuyThatCanDoAnything" }
 payload_blank_name = { "name": "", "position": "CEO" }
+payload_special_chars = { "name": "~!@#$%^&*()" }
 headers={'content-type': 'application/json'}
 
 def test_get_candidates():
@@ -57,7 +58,17 @@ def test_adding_candidate_with_blank_name():
     r = requests.post(url+'candidates', data=json.dumps(payload_blank_name), headers=headers)
     assert r.status_code == 400, "Return status code 400 if user tries to add candidate with blank 'name'"
 
-def
+def test_adding_candidate_with_special_chars_name():
+    r = requests.post(url+'candidates', data=json.dumps(payload_special_chars), headers=headers)
+    assert r.status_code == 400, "Return status code 400 if user tries to add candidate with name that contains special characters"
+
+# def test_adding_name_null():
+#
+#
+# def test_adding_name_256():
+#
+#
+# def test_delete_non_existing_candidate():
 
 if __name__ == '__main__':
     pytest.main([__file__, '-v'])
