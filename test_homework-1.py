@@ -83,6 +83,8 @@ def test_adding_name_256():
 def test_delete_non_existing_candidate():
     r = requests.delete(url+'candidates/1')
     assert r.status_code == 404, "Return status code 404 if user tries to delete candidate that doesn't exist"
+    
+# comment
 
 if __name__ == '__main__':
     pytest.main([__file__, '-v'])
